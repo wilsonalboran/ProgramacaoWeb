@@ -1,0 +1,45 @@
+<html>
+<link rel="stylesheet" type="text/css" href="style.css">
+
+<head>
+    <title>Wilson Albuquerque - Atividade Página de Pesquisa</title>
+</head>
+
+<body>
+    <h1>Qual será a primeira coisa que você fará após a pandemia?</h1>
+
+    <form id="options">
+
+        <select id = "select_options" name="select_options">
+            <option value="IR A PRAIA">IR A PRAIA</option>
+            <option value="IR AO CINEMA">IR AO CINEMA</option>
+            <option value="VIAJAR SEM RUMO">VIAJAR SEM RUMO</option>
+            <option value="VISITAR PARENTES">VISITAR PARENTES</option>
+        </select>
+        <br/>
+
+
+        <br/>
+        <br/>
+        <input type="button" value="Continuar" onclick="save(); window.location.href = 'resultado_pag.html';">
+
+    </form>
+
+    <input type="button" value="Voltar" onclick="save(); window.location.href = 'segunda_pag.html';">
+
+</body>
+
+<script>
+
+    function save(){
+        input = document.getElementById('select_options');
+        localStorage.setItem('select_options', input.value);
+    }
+
+    document.getElementById('select_options').value = localStorage.getItem('select_options')
+
+    
+
+</script>
+
+</html>
