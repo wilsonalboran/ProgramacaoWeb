@@ -1,0 +1,56 @@
+<html>
+<link rel="stylesheet" type="text/css" href="style.css">
+
+<head>
+    <title>Wilson Albuquerque - Atividade Página de Pesquisa</title>
+</head>
+
+<script>
+    var primeira_resposta = localStorage.getItem("primeira_resposta");
+    var nome = localStorage.getItem("nome");
+    var id_opcao = localStorage.getItem('opcao')
+
+    if (id_opcao == 1){
+        var segunda_opcao = "Em casa"
+    }
+    else if(id_opcao == 2){
+        var segunda_opcao = "Fora de Casa"
+    }
+    else{
+        var segunda_opcao = "Não foi respondida"
+    }
+
+    var segunda_resposta = localStorage.getItem("segunda_resposta") || "A 2ª pergunta não foi respondida"
+    if (id_opcao == 1) {
+        var segunda_resposta = "Suas atividades nessa pandemia: " + segunda_resposta
+    }
+    else if (id_opcao == 2) {
+        var segunda_resposta = "Locais que você mais frequentou na pandemia: " + segunda_resposta
+    }
+    
+
+    var opcao = localStorage.getItem('select_options') || "Não foi respondida"
+
+</script>
+
+<body>
+
+    <h1>Confira suas respostas:  <span id="resultados"></span></h1>
+
+    <p>
+        <br/>Seu nome é: <script>document.write(nome)</script>
+        <br/>Nesta pandemia você está: <script>document.write(primeira_resposta)</script>
+        <br/>Você passa maior parte do tempo: <script>document.write(segunda_opcao)</script>
+        <br/><script>document.write(segunda_resposta)</script>
+        <br/>Quando a pandemia passar você irá: <script>document.write(opcao)</script>
+    </p>
+
+    <input type="button" value="Voltar" onclick="window.location.href = 'terceira_pag.html';">
+    <input type="button" value="Começar de novo" onclick="localStorage.clear(); window.location.href = 'index.html';">
+
+
+</body>
+
+
+
+</html>
