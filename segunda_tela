@@ -1,0 +1,70 @@
+<html>
+<link rel="stylesheet" type="text/css" href="style.css">
+
+<head>
+    <title>Wilson Albuquerque - Atividade Página de Pesquisa</title>
+</head>
+
+<body>
+
+    <h1>Você passa maior parte do tempo em casa ou fora?</h1>
+
+    <form id="options">
+        <input type="radio" name="opcao" id="opcao1" value="Em casa" onclick="func(); toggle('opcao1')" required> Quando você está em casa
+        <br/>
+        <input type="radio" name="opcao" id="opcao2" value="Fora de Casa" onclick="func(); toggle('opcao2')" required> Quando você está fora de casa        <br/>
+        
+        <br/>
+        <label id = 'label_segunda_pergunta' for="segunda_pergunta">Escolha uma Opção acima</label>
+        <br/>
+        <textarea id="segunda_pergunta" name="segunda_pergunta" rows="5" cols="50" placeholder="Digite aqui sua resposta"></textarea>
+
+        <br/>
+        <br/>
+        <input type="button" value="Continuar" onclick="func(); window.location.href = 'terceira_pag.html';">
+        
+    </form>
+
+    <input type="button" value="Voltar" onclick="func(); window.location.href = 'index.html';">
+
+</body>
+
+<script>
+
+    function func(){
+        var options = document.getElementById('options')
+        
+        for (let i = 0; i < options.length; i++){
+            if (options[i].checked == true){
+                localStorage.setItem("opcao", i+1);
+            }
+        }
+        localStorage.setItem("segunda_resposta", document.getElementById("segunda_pergunta").value);
+        }
+
+    function toggle(value){
+        if (value == 'opcao1'){
+            document.getElementById('label_segunda_pergunta').textContent = 'O que você mais faze em casa?'
+        } 
+        else if (value == 'opcao2'){
+            document.getElementById('label_segunda_pergunta').textContent = "Quais locais você mais frequentou?"
+        }      
+    } 
+
+    id_checked = localStorage.getItem('opcao')
+
+    if(id_checked == 1){
+        document.getElementById('label_segunda_pergunta').textContent = 'O que você mais gosta de fazer em casa?'
+    }
+    else if(id_checked == 2){
+        document.getElementById('label_segunda_pergunta').textContent = "Quais locais você foi nessa pandemia?"
+    }
+
+    document.getElementById('options')[id_checked-1].checked = true
+    document.getElementById("segunda_pergunta").value = localStorage.getItem("segunda_resposta");    
+
+
+</script>
+
+</html>
+
