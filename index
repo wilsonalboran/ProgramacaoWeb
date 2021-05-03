@@ -1,0 +1,40 @@
+<html>
+<link rel="stylesheet" type="text/css" href="style.css">
+
+<head>
+    <title>Wilson Albuquerque - Atividade Página de Pesquisa</title>
+</head>
+
+<body>
+
+    <h1>Queremos te conhecer melhor</h1>
+    
+    <form>
+        
+        <label for="nome">Qual seu nome?</label><br/>
+        <input type="text" id="nome" name="nome" placeholder = "Digite aqui o seu nome" required><br/>
+
+        <br/>
+        <label for="primeira_pergunta">O que você está fazendo para passar o tempo nessa pandemia?:</label><br/>
+        <textarea id="primeira_pergunta" name="primeira_pergunta" rows="5" cols="50" placeholder = "Digite aqui sua resposta" required></textarea>
+        <br/>
+
+        <br/><input type="button" value="Continuar" onclick="primeira_pag(); window.location.href = 'segunda_pag.html';">
+    </form>
+
+    
+
+</body>
+
+<script>
+    function primeira_pag() {
+            localStorage.setItem("primeira_resposta", document.getElementById("primeira_pergunta").value);
+            localStorage.setItem("nome", document.getElementById("nome").value);
+        }
+
+
+        document.getElementById("primeira_pergunta").value = localStorage.getItem("primeira_resposta");
+        document.getElementById("nome").value = localStorage.getItem("nome");
+</script>
+
+</html>
